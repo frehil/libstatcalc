@@ -13,7 +13,9 @@ For most Linux distributions you will need make sure you have g++ installed.  On
 sudo apt-get install build-essential 
 sudo apt-get install g++
 
-The make-* scripts have additional OS specific information.  To be able to call the functions from within Progress make sure you modify the compile scripts to specify the -DPROGRESS macro.  If you want to test it on Linux without Progress leave the -DPROGRESS flag off and then you can just run the statcalc program. 
+The make-* scripts have additional OS specific information.  To be able to call the functions from within Progress 
+make sure you modify the compile scripts to specify the -DPROGRESS macro.  If you want to test it on Linux without 
+Progress leave the -DPROGRESS flag off and then you can just run the statcalc program. 
 
 The current functions included are as follows:
 average
@@ -29,7 +31,8 @@ NPV
 power
 stdev
 
-Once the .dll and/or .so has been built just move it to where the libraries "normally" live on your OS.  Typically for Windows 32 bit it's C:\Windows\System32, for AIX it's /lib, and for Ubuntu 13.10 it's /usr/lib.
+Once the .dll and/or .so has been built just move it to where the libraries "normally" live on your OS.  
+Typically for Windows 32 bit it's C:\Windows\System32, for AIX it's /lib, and for Ubuntu 13.10 it's /usr/lib.
 
 
 
