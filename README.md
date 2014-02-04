@@ -29,7 +29,7 @@ NPV
 power
 stdev
 
-Once the .dll and/or .so has been built just move it to where the libraries "normally" live on you OS.  Typically for Windows 32 bitthis is C:\Windows\System32, for AIX it's /lib, and for Ubuntu 13.10 it's /usr/lib.
+Once the .dll and/or .so has been built just move it to where the libraries "normally" live on you OS.  Typically for Windows 32 bit this is C:\Windows\System32, for AIX it's /lib, and for Ubuntu 13.10 it's /usr/lib.
 
 
 
