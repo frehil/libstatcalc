@@ -1,0 +1,20 @@
+# **************************************************************
+# Copyright Xensys Corporation 2009-2014
+# (see LICENSE.txt)
+#
+# REF: http://www.ibm.com/developerworks/aix/library/au-gnu.html
+#      http://www.ibm.com/developerworks/cn/linux/l-cn-linklib/gcc.pdf
+#
+# make-AIX
+#
+# When finished just copy (as root) the .so file to where ever your version of AIX
+# keeps in shared objects (typically /lib).  You may need to chown and/or 
+# chgrp too depending on what process is going to call the .so
+
+PATH=/opt/freeware/bin:$PATH
+export PATH
+OBJECT_MODE=64
+export OBJECT_MODE
+g++ -c -maix64 -fPIC -D PROGRESS libstatcalc.cpp
+ld -G -b64 -o libstatcalc.so libstatcalc.o -bnoentry -bexpall -brtl -lc -lm
+chmod 777 libstatcalc.so

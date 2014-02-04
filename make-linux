@@ -1,0 +1,28 @@
+# **************************************************************
+# Copyright Xensys Corporation 2009-2014
+# (see LICENSE.txt)
+#
+# make-linux
+# NOTE: You can also configure Eclipse to build and run a generated makefile 
+#
+# Run this in the directory where you have the code for this project
+# which is assumed to be ~/workspace/libstatcalc
+
+# compile the program
+g++ -fPIC -c libstatcalc.cpp
+
+# link and build the shared library
+ld -shared -soname libstatcalc.so.1 -o libstatcalc.so.1.0 -lc libstatcalc.o
+
+# copy to where the .so's on your system normally live
+sudo cp libstatcalc.so.1.0 /usr/lib
+
+cd /usr/lib
+
+# system configuration
+sudo ldconfig -v -n .
+sudo ln -sf libstatcalc.so.1 libstatcalc.so
+
+# now build the simple demo program 
+cd ~/workspace/libstatcalc
+g++ -o statcalc statcalc.cpp -L/usr/lib -lstatcalc
