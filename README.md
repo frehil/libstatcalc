@@ -3,7 +3,7 @@ libstatcalc
 
 Math, statistical, and financial functions library (.dll and .so).  Written in C/C++.
 
-Includes flags to compile for calls from a Progress OpenEdge&#8482 program;
+Includes flags to compile for calls from a Progress OpenEdge&#8482; program;
 
 The results should approximate those returned by Excel&#8482; for the equivalent functions.
 
