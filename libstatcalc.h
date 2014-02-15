@@ -26,16 +26,16 @@ using namespace std;
                              : R_D_Cval(p))
 #define R_D_Lval(p)   (lower_tail ? (p) : (1 - (p)))
 
-// TODO: Find out how to use /OPT:IEEE_NaN_inf=on for ML_NEGINF or check into System.Double.PositiveInfinity
-#define ML_NEGINF   ((-1.0) /  0.0000000000000000000000000001)
 //#define ML_NEGINF   ((-1.0) /  0)
+//#define ML_NEGINF   ((-1.0) /  0.0000000000000000000000000001)
+#define ML_NEGINF   - HUGE_VAL
 
 #define R_D__0  (log_p ? ML_NEGINF : 0.)        /* 0 */
 #define R_D__1  (log_p ? 0. : 1.)           /* 1 */
 
-// TODO: Find out how to use /OPT:IEEE_NaN_inf=on for ML_POSINF or check into System.Double.PositiveInfinity
-#define ML_POSINF       (1.0 / 0.0000000000000000000000000001)
 //#define ML_POSINF       (1.0 / 0)
+//#define ML_POSINF       (1.0 / 0.0000000000000000000000000001)
+#define ML_POSINF	HUGE_VAL
 
 #define R_DT_0  (lower_tail ? R_D__0 : R_D__1)      /* 0 */
 #define R_DT_1  (lower_tail ? R_D__1 : R_D__0)      /* 1 */
@@ -55,6 +55,10 @@ using namespace std;
 #define ERROR -1e30
 #endif
 
+#ifndef my_PI
+#define my_PY 3.14159265358979323846 // value of PI to 20 places
+#endif
+
 #ifdef PROGRESS
 // Function declarations for calls from Progress OpenEdge (R)
 // ref: http://zone.ni.com/devzone/cda/tut/p/id/3056
@@ -69,8 +73,23 @@ extern "C" double normdist(double x, double mean, double standard_dev);
 extern "C" double norminv(double p, double mu, double sigma);
 extern "C" double numelements(double *data);
 extern "C" double NPV(double rate, double *data, int size);
-extern "C" double power(double base, double exponent);
+extern "C" double POW(double base, double exponent);
 extern "C" double stdev(double * parray, int size);
+extern "C" double COS(double pradian);
+extern "C" double SIN(double pradian);
+extern "C" double TAN(double pradian);
+extern "C" double ACOS(double param);
+extern "C" double ASIN(double param);
+extern "C" double ATAN(double param);
+extern "C" double COSH(double param);
+extern "C" double SINH(double param);
+extern "C" double TANH(double param);
+extern "C" double EXP(double param);
+extern "C" double SQRT(double param);
+extern "C" double ABS(double param);
+extern "C" double LOG(double param);
+extern "C" double deg2rad(double pdegrees);
+extern "C" double rad2deg(double pradian);
 #else
 // For calls from other than Progress use these function declarations:
 double average(double * parray, int size);
@@ -84,8 +103,23 @@ double normdist(double x, double mean, double standard_dev);
 double norminv(double p, double mu, double sigma);
 double numelements(double *data);
 double NPV(double rate, double *data, int size);
-double power(double base, double exponent);
+double POW(double base, double exponent);
 double stdev(double * parray, int size);
+double COS(double pradian);
+double SIN(double pradian);
+double TAN(double pradian);
+double ACOS(double param);
+double ASIN(double param);
+double ATAN(double param);
+double COSH(double param);
+double SINH(double param);
+double TANH(double param);
+double EXP(double param);
+double SQRT(double param);
+double ABS(double param);
+double LOG(double param);
+double deg2rad(double pdegrees);
+double rad2deg(double pradian);
 #endif
 
 #endif /*STATCALC_H_*/

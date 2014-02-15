@@ -12,7 +12,7 @@
 g++ -fPIC -c libstatcalc.cpp
 
 # link and build the shared library
-ld -shared -soname libstatcalc.so.1 -o libstatcalc.so.1.0 -lc libstatcalc.o
+ld -shared -soname libstatcalc.so.1 -o libstatcalc.so.1.0 -lc libstatcalc.o -lm
 
 # copy to where the .so's on your system normally live
 sudo cp libstatcalc.so.1.0 /usr/lib

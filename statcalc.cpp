@@ -23,7 +23,7 @@ int main(int argc, char** argv) {
 
 	if (argc < 2) {
 		cout << "Usage:  Enter a list of numbers separated\n";
-        cout << "\tby spaces to calculate the average\n";
+        cout << "\tby spaces to calculate the IRR\n";
 		cout << "\tExample: statcalc 1 2 3 4 5\n";
 		return -1;
 	}
@@ -34,9 +34,9 @@ int main(int argc, char** argv) {
 		paray[i - 1] = (double) atof(argv[i]);
 	}
 
-	ave = average(paray, size);
+	ave = IRR(paray, size);
 
-	cout << "The mean is: " << ave << "\n";
+	cout << "The IRR is: " << ave << "\n";
 
 	return 0;
 
